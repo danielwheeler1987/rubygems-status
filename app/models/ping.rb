@@ -1,4 +1,7 @@
 class Ping < ActiveRecord::Base
+
+  scope :sorted_by_service , -> { order(service: :asc) }
+
   def down?
     unknown? || status == "down"
   end

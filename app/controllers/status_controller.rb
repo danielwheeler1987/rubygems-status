@@ -1,6 +1,6 @@
 class StatusController < ApplicationController
   def show
-    @pings = Ping.all.sort_by { |x| x.service }
+    @pings = Ping.sorted_by_service
 
     crit = @pings.any? { |x| x.down? and x.critical? }
 
